@@ -1,6 +1,9 @@
 import argparse
 import telegram
 import os
+
+from time import sleep
+from random import shuffle
 from dotenv import load_dotenv
 
 from fetch_spacex_images import fetch_spacex_last_launch
