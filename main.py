@@ -11,7 +11,7 @@ from nasa_picture_of_the_day import nasa_picture_of_the_day
 load_dotenv()
 TG_TOKEN = os.environ['TG_TOKEN']
 bot = telegram.Bot(token=TG_TOKEN)
-bot.send_message(chat_id='@testttttttttttttasdasfsdf', text='test')
+bot.send_photo(chat_id='@testttttttttttttasdasfsdf', photo=open('images/EPIC_0.png', 'rb'))
 
 
 parser = argparse.ArgumentParser(description='Программа загружает фото запусков SpaceX, фото земли от NASA или фото дня от NASA')
