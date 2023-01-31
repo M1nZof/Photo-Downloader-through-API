@@ -9,11 +9,13 @@
 - NASA_API_KEY - [API ключ от NASA](https://api.nasa.gov/);
 - TG_TOKEN - Токен от TG-бота. Получается у [@BotFather](https://t.me/BotFather);
 - LATENCY - Задержка в отправке постов в группе (указывается в секундах)
+- CHANNEL - В какой канал отравляются посты
 
 ```
-NASA_API_KEY=rRG3bcsRVn1GZSwVBdiQmk7E208pbQ07yWhia1jN
-TG_TOKEN=6191397074:AAGPnx8ZOs62SlDIeiV371Ou9fvzIPZ3ZxU
+NASA_API_KEY=aAgG24Ss
+TG_TOKEN=123123:AaBbCc
 LATENCY=14400
+CHANNEL=@test (or id of channel)
 ```
 
 ## Как пользоваться скриптом
@@ -25,5 +27,6 @@ LATENCY=14400
 - `sx` - поиск фото пусков SpaceX. Есть возможность указать id пуска по аргументу `-id`. По умолчанию ищет фото последнего пуска;
 - `epic` - поиск фото Земли от NASA;
 - `apod` - поиск подборки фото дня от NASA;
+- `tg` - Отправка постов в телеграм-канале;
 - `-h` - вывод справки;
 - `-p` - желаемый путь для сохранения фото. По умолчанию - images в папке с исполняемым файлом
