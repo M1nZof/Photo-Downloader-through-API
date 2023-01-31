@@ -13,16 +13,16 @@ from nasa_picture_of_the_day import nasa_picture_of_the_day
 
 load_dotenv()
 TG_TOKEN = os.environ['TG_TOKEN']
+LATENCY = int(os.environ['LATENCY'])
 bot = telegram.Bot(token=TG_TOKEN)
-bot.send_photo(chat_id='@testttttttttttttasdasfsdf', photo=open('images/EPIC_0.png', 'rb'))
 
 
 parser = argparse.ArgumentParser(description='Программа загружает фото запусков SpaceX, фото земли от NASA или фото дня от NASA')
 parser.add_argument('search',
                     help='Что искать:'
-                    '- sx - Фото от SpaceX. Если требуется, указать id пуска по аргументу -id. По стандарту это последний запуск'
-                    '- epic - Фото земли от NASA'
-                    '- apod - Фото дня от NASA',
+                    '- sx - Фото от SpaceX. Если требуется, указать id пуска по аргументу -id. По стандарту это последний запуск; '
+                    'epic - Фото земли от NASA; '
+                    'apod - Фото дня от NASA;',
                     type=str
                    )
 parser.add_argument('-id', help='ID вылета SpaceX', type=str)
@@ -36,3 +36,13 @@ elif args.search == 'epic':
   nasa_epic()
 elif args.search == 'apod':
   nasa_picture_of_the_day()
+
+image_directory = os.walk('images')
+for dir_name, _, image in image_directory:
+    image_list = image
+    
+
+shuffle(image_list)
+for image in image_list:
+    bot.send_photo(chat_id='@testttttttttttttasdasfsdf', photo=open(f'images/{image}', 'rb'))
+    sleep(LATENCY)
