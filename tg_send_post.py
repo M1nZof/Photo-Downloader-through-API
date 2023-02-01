@@ -23,11 +23,11 @@ if __name__ == '__main__':
         image_directory = os.walk(args.path)
     else:
         image_directory = os.walk('images')
-    dir_name, _, image_list = next(image_directory)
-    shuffle(image_list)    
+    dir_name, _, images = next(image_directory)
+    shuffle(images)    
 
     while True:
-        for image in image_list:
+        for image in images:
             bot.send_photo(chat_id=tg_channel, photo=open(f'{dir_name}/{image}', 'rb'))
             sleep(post_latency)
             
