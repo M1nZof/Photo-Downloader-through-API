@@ -14,9 +14,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     load_dotenv()
-    TG_TOKEN = os.environ['TG_TOKEN']
-    POST_LATENCY = int(os.environ['POST_LATENCY'])
-    TG_CHANNEL = os.environ['TG_CHANNEL']
+    tg_token = os.environ['TG_TOKEN']
+    post_latency = int(os.environ['POST_LATENCY'])
+    tg_channel = os.environ['TG_CHANNEL']
     bot = telegram.Bot(token=TG_TOKEN)
 
     if args.path:
@@ -30,5 +30,5 @@ if __name__ == '__main__':
     while True:
         for image in image_list:
             bot.send_photo(chat_id=TG_CHANNEL, photo=open(f'{dir_name}/{image}', 'rb'))
-            sleep(POST_LATENCY)
+            sleep(post_latency)
             

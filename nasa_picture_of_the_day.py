@@ -18,10 +18,10 @@ if __name__ == '__main__':
         path = args.path
         
     load_dotenv()
-    API_KEY = os.environ['NASA_API_KEY']
+    nasa_api_key = os.environ['NASA_API_KEY']
 
     payload = {
-        'api_key': API_KEY,
+        'api_key': nasa_api_key,
         'count': 30
         }
 

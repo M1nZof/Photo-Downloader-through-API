@@ -18,10 +18,10 @@ if __name__ == '__main__':
         path = args.path
     
     load_dotenv()
-    NASA_API_KEY = os.environ['NASA_API_KEY']
+    nasa_api_key = os.environ['NASA_API_KEY']
 
     url = 'https://api.nasa.gov/EPIC/api/natural/images'
-    payload = {'api_key': NASA_API_KEY}
+    payload = {'api_key': nasa_api_key}
 
     response = requests.get(url, params=payload)
     response.raise_for_status()
