@@ -17,7 +17,7 @@ if __name__ == '__main__':
     tg_token = os.environ['TG_TOKEN']
     post_latency = int(os.environ['POST_LATENCY'])
     tg_channel = os.environ['TG_CHANNEL']
-    bot = telegram.Bot(token=TG_TOKEN)
+    bot = telegram.Bot(token=tg_token)
 
     if args.path:
         image_directory = os.walk(args.path)
@@ -29,6 +29,6 @@ if __name__ == '__main__':
 
     while True:
         for image in image_list:
-            bot.send_photo(chat_id=TG_CHANNEL, photo=open(f'{dir_name}/{image}', 'rb'))
+            bot.send_photo(chat_id=tg_channel, photo=open(f'{dir_name}/{image}', 'rb'))
             sleep(post_latency)
             
