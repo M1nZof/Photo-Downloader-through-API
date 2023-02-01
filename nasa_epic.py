@@ -28,7 +28,7 @@ if __name__ == '__main__':
     json_response = response.json()
   
     for index, picture in enumerate(json_response):
-        picture_name = picture['image'] + '.png'
+        picture_name = f"{picture['image']}.png"
         picture_datetime = picture['date']
         picture_date = picture_datetime.split()[0].split('-')
         year, month, day = picture_date

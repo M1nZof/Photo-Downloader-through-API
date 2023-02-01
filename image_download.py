@@ -15,7 +15,7 @@ def image_download(url, filename, path, payload=None):
     if not os.path.exists(path):
         os.mkdir(path)
 
-    image_path = os.path.join(path, (filename + file_format))
+    image_path = os.path.join(path, (f'{filename}{file_format}'))
     with open(image_path, 'wb') as file:
         file.write(response.content)
     
