@@ -28,6 +28,7 @@ if __name__ == '__main__':
 
     while True:
         for image in images:
-            bot.send_photo(chat_id=tg_channel, photo=open(f'{dir_name}/{image}', 'rb'))
+            with open(f'{dir_name}/{image}', 'rb') as photo:
+                bot.send_photo(chat_id=tg_channel, photo=photo)
             sleep(post_latency)
             
