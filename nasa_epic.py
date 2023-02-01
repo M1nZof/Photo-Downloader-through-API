@@ -25,9 +25,9 @@ if __name__ == '__main__':
 
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    result = response.json()
+    json_response = response.json()
   
-    for index, picture in enumerate(result):
+    for index, picture in enumerate(json_response):
         picture_name = picture['image'] + '.png'
         picture_datetime = picture['date']
         picture_date = picture_datetime.split()[0].split('-')

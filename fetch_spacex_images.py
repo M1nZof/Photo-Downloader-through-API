@@ -25,11 +25,10 @@ if __name__ == '__main__':
     
     response = requests.get(url)
     response.raise_for_status()
-  
-    result = response.json()
-    result_links = result.get('links')
-    result_flickr = result_links.get('flickr')
-    images = result_flickr.get('original')
+
+    response_links = response.json().get('links')
+    response_flickr = response_links.get('flickr')
+    images = response_flickr.get('original')
 
     if images:
       for index, image_link in enumerate(images):
