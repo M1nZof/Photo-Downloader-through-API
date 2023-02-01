@@ -23,8 +23,7 @@ if __name__ == '__main__':
         image_directory = os.walk(args.path)
     else:
         image_directory = os.walk('images')
-    for dir_name, _, image in image_directory:
-        image_list = image
+    dir_name, _, image_list = next(image_directory)
     shuffle(image_list)    
 
     while True:
