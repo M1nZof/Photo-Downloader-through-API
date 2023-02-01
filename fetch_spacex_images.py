@@ -31,8 +31,6 @@ if __name__ == '__main__':
     images = response_flickr.get('original')
 
     if images:
-      for index, image_link in enumerate(images):
-        image_name = f'SpaceX_{index}'
-        image_download(image_link, image_name, path)
-    else:
-      print('Увы, по данному запуску не было зафиксировано фото')
+        for index, image_link in enumerate(images):
+            image_name = f'SpaceX_{index}'
+            image_download(image_link, image_name, path)
