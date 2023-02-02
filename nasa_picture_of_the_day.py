@@ -25,9 +25,9 @@ if __name__ == '__main__':
     url = 'https://api.nasa.gov/planetary/apod'
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    json_response = response.json()
+    unpacked_response = response.json()
     
-    for index, image in enumerate(json_response):
+    for index, image in enumerate(unpacked_response):
         if image.get('hdurl'):
             image_link = image['hdurl']
             image_download(image_link, f'APOD_{index}', args.path)

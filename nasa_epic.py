@@ -20,9 +20,9 @@ if __name__ == '__main__':
 
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    json_response = response.json()
-  
-    for index, picture in enumerate(json_response):
+    unpacked_response = response.json()
+    
+    for index, picture in enumerate(unpacked_response):
         picture_name = f"{picture['image']}.png"
         picture_datetime = picture['date']
         picture_date = picture_datetime.split()[0].split('-')
