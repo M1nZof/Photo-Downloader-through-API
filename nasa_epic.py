@@ -8,14 +8,9 @@ from dotenv import load_dotenv
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Программа загружает фото Земли сделанные NASA')
-    parser.add_argument('-p', '--path', type=str,
+    parser.add_argument('-p', '--path', type=str, default='images',
                         help='Путь сохранения файлов. Стандартно - папка images')
     args = parser.parse_args()
-    
-    if args.path is None:
-        path = 'images'
-    else:
-        path = args.path
     
     load_dotenv()
     nasa_api_key = os.environ['NASA_API_KEY']
@@ -34,4 +29,4 @@ if __name__ == '__main__':
         year, month, day = picture_date
         day, month, year = day, month, year
         image_url = f"https://api.nasa.gov/EPIC/archive/natural/{str(year)}/{str(month)}/{str(day)}/png/{picture_name}"
-        image_download(image_url, f'EPIC_{index}', 'images', payload)
+        image_download(image_url, f'EPIC_{index}', args.path, payload)

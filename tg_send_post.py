@@ -9,7 +9,7 @@ from time import sleep
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Программа загружает фото в заданный телеграм-канал с заданным промежутком')
-    parser.add_argument('-p', '--path', type=str,
+    parser.add_argument('-p', '--path', type=str, default='images',
                         help='Путь сохранения файлов. Стандартно - папка images')
     args = parser.parse_args()
 
@@ -19,11 +19,7 @@ if __name__ == '__main__':
     tg_channel = os.environ['TG_CHANNEL']
     bot = telegram.Bot(token=tg_token)
 
-    if args.path:
-        image_directory = os.walk(args.path)
-    else:
-        image_directory = os.walk('images')
-    dir_name, _, images = next(image_directory)
+    dir_name, _, images = next(os.walk(args.path))
     shuffle(images)    
 
     while True:
